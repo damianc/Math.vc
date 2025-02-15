@@ -7,7 +7,16 @@ Math.vc = {
 	divergence,
 	curl,
 	laplacian,
-	vectorLaplacian
+	vectorLaplacian,
+	add,
+	sub,
+	mul,
+	dotProduct,
+	crossProduct,
+	length,
+	normalize,
+	angle,
+	projection
 };
 
 function partialDerivative(f, x, y, z, varIndex) {
@@ -82,6 +91,64 @@ function vectorLaplacian(F) {
             dz: gradDivF_value.dz - curlCurlF_value.dz
         };
     };
+}
+
+function _sum(arr) {
+	return arr.reduce((acc,curr) => {
+		return acc+curr;
+	});
+}
+
+function add(A,B) {
+	return A.map((a,i) => a + B[i]);
+}
+
+function sub(A,B) {
+	return A.map((a,i) => a - B[i]);
+}
+
+function mul(A,k) {
+	return A.map(a => k*a);
+}
+
+function dotProduct(A,B) {
+	const prods = A.map((a,i) => a * B[i]);
+	return _sum(prods);
+}
+
+function crossProduct(A,B) {
+	const [a1,a2,a3] = A;
+	const [b1,b2,b3] = B;
+	return [
+	 a2*b3-a3*b2,
+	 a3*b1-a1*b3,
+	 a1*b2-a2*b1
+	];
+}
+
+function length(V) {
+	return Math.sqrt(_sum(
+		V.map(v => v**2)
+	));
+}
+
+function normalize(V) {
+	const len = length(V);
+	return V.map(v => v / len);
+}
+
+function angle(A,B) {
+	return Math.acos(
+		dotProduct(A,B) / (
+			length(A) * length(B)
+		)
+	);
+}
+
+function projection(A,B) {
+	const dot = dotProduct(A,B);
+	const ls = length(B)**2;
+	return mul(B, dot/ls);
 }
 
 })()
