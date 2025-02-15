@@ -3,6 +3,15 @@ Support for _vector calculus_ in JavaScript.
 
 The following methods are accessible through the `Math.vc` namespace:
 
+- `add(A,B)`
+- `sub(A,B)`
+- `mul(A,k)`
+- `dotProduct(A,B)`
+- `crossProduct(A,B)`
+- `angle(A,B)`
+- `projection(A,B)`
+- `length(V)`
+- `normalize(V)`
 - `gradient(f)`
 - `divergence(F)`
 - `curl(F)`
@@ -10,6 +19,82 @@ The following methods are accessible through the `Math.vc` namespace:
 - `vectorLaplacian(F)`
 
 ## Overview
+
+### `add(A,B)`
+
+Adds two vectors.
+
+$$
+A + B
+$$
+
+### `sub(A,B)`
+
+Subtracts two vectors.
+
+$$
+A - B
+$$
+
+### `mul(A,k)`
+
+Multiplies a vector by a scalar value.
+
+$$
+kA
+$$
+
+### `dotProduct(A,B)`
+
+The dot product of two vectors.
+
+$$
+A \cdot B
+$$
+
+### `crossProduct(A,B)`
+
+The cross product of two vectors.
+
+$$
+A \times B
+$$
+
+### `angle(A,B)`
+
+Returns an angle between two vectors.
+
+$$
+\arccos\left(
+  \frac{A \cdot B}{|A| |B|}
+\right)
+$$
+
+### `projection(A,B)`
+
+Projects vector A on vector B.
+
+$$
+\text{proj}_B \ A = \frac{A \cdot B}{|B|^2} B
+$$
+
+### `length(V)`
+
+Returns a length of a vector.
+
+$$
+|V| = \sqrt{a_1 + \cdots + a_n}
+$$
+
+### `normalize(V)`
+
+Performs normalization of a vector.
+
+$$
+\frac{V}{|V|}
+$$
+
+## Overview of Differential Methods
 
 ### `gradient(f)`
 
