@@ -13,6 +13,8 @@ Math.vc = {
 	mul,
 	dotProduct,
 	crossProduct,
+	outerProduct,
+	kroneckerProduct,
 	length,
 	normalize,
 	angle,
@@ -126,6 +128,22 @@ function crossProduct(A,B) {
 	 a3*b1-a1*b3,
 	 a1*b2-a2*b1
 	];
+}
+
+function outerProduct(A,B) {
+	return A.map(a => {
+		return mul(B,a)
+	});
+}
+
+function kroneckerProduct(A,B) {
+ if ('flat' in Array.prototype) {
+		return outerProduct(A,B).flat();
+	} else {
+	 return A.reduce((acc,curr) => {
+		 return [...acc, ...mul(B,curr)];
+	 }, []);
+	}
 }
 
 function length(V) {
