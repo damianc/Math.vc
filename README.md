@@ -8,6 +8,8 @@ The following methods are accessible through the `Math.vc` namespace:
 - `mul(A,k)`
 - `dotProduct(A,B)`
 - `crossProduct(A,B)`
+- `outerProduct(A,B)`
+- `kroneckerProduct(A,B)`
 - `angle(A,B)`
 - `projection(A,B)`
 - `arePerpendicular(A,B)`
@@ -63,6 +65,30 @@ The cross product of two vectors.
 
 $$
 A \times B
+$$
+
+### `outerProduct(A,B)`
+
+The outer product of two vectors.
+
+$$
+A \otimes B = \begin{bmatrix}
+ a_1b_1 & a_1b_2 & \cdots
+ \\
+ a_2b_1 & a_2b_2 & \cdots
+ \\
+ \vdots & \vdots & \ddots
+\end{bmatrix}
+$$
+
+### `kroneckerProduct(A,B)`
+
+The Kronecker product of two vectors.
+
+$$
+A \otimes B = [
+ a_1B, ..., a_nB
+]
 $$
 
 ### `angle(A,B)`
