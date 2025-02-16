@@ -10,8 +10,13 @@ The following methods are accessible through the `Math.vc` namespace:
 - `crossProduct(A,B)`
 - `angle(A,B)`
 - `projection(A,B)`
+- `arePerpendicular(A,B)`
+- `areParallel(A,B)`
 - `length(V)`
 - `normalize(V)`
+
+Plus the following differential methods:
+
 - `gradient(f)`
 - `divergence(F)`
 - `curl(F)`
@@ -76,6 +81,22 @@ Projects vector A on vector B.
 
 $$
 \text{proj}_B \ A = \frac{A \cdot B}{|B|^2} B
+$$
+
+### `arePerpendicular(A,B)`
+
+Checks if two vectors are perpendicular.
+
+$$
+A \perp B \iff A \cdot B = 0
+$$
+
+### `areParallel(A,B)`
+
+Checks if two vectors are parallel.
+
+$$
+A \parallel B \iff A \times B = [0,0,0]
 $$
 
 ### `length(V)`
