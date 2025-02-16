@@ -16,7 +16,9 @@ Math.vc = {
 	length,
 	normalize,
 	angle,
-	projection
+	projection,
+	arePerpendicular,
+	areParallel
 };
 
 function partialDerivative(f, x, y, z, varIndex) {
@@ -149,6 +151,15 @@ function projection(A,B) {
 	const dot = dotProduct(A,B);
 	const ls = length(B)**2;
 	return mul(B, dot/ls);
+}
+
+function arePerpendicular(A,B) {
+	return dotProduct(A,B) === 0;
+}
+
+function areParallel(A,B) {
+	const cp = crossProduct(A,B);
+	return cp.every(v => v === 0);
 }
 
 })()
